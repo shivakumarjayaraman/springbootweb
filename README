@@ -1,0 +1,11 @@
+## Install sdkman 
+
+$ curl -s "https://get.sdkman.io" | bash
+
+## Install springboot
+
+sdk install springboot
+
+## Create a webapp using initializr
+
+spring init -d=web <dirname>
