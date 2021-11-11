@@ -3,11 +3,14 @@ package com.example.springbootweb.request;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
 
+import com.example.springbootweb.session.LoggedInUserDetails;
+
 @Component
 @RequestScope
 public class LoginProcessor {
 	private String username;
 	private String password;
+	
 	
 	
 	public String getUsername() {
@@ -26,15 +29,16 @@ public class LoginProcessor {
 		this.password = password;
 	}
 
-
-	public LoginProcessor() {
-		System.out.println("Inside LP constructor");
-	}
 	
-	public boolean login() {
-		System.out.println(this.username + ":" + this.password);
+	public boolean login(LoggedInUserDetails details) {
+		System.out.println(this.username + ":" + this.password + ":" + this.hashCode());
 		boolean loggedIn = "shiva".equalsIgnoreCase(username) && "password".equalsIgnoreCase(password);
 		System.out.println("Login Success : " + loggedIn);
+		System.out.println("Details " + details);
+		
+		if (loggedIn && (details != null)) {
+			details.setLoggedInUser(this.username);
+		}
 		return loggedIn;
 	}
 }
