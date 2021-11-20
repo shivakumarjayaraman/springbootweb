@@ -6,16 +6,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.springbootweb.clients.ProductFeignClient;
 import com.example.springbootweb.clients.ProductRestTemplateClient;
+import com.example.springbootweb.clients.WebfluxClient;
 import com.example.springbootweb.model.Product;
+
+import reactor.core.publisher.Mono;
 
 @RestController
 public class RestClientController {
 	ProductFeignClient client;
 	ProductRestTemplateClient rtClient;
+	WebfluxClient wfclient;
 	
-	public RestClientController(ProductFeignClient c, ProductRestTemplateClient rtc) {
+	public RestClientController(ProductFeignClient c, ProductRestTemplateClient rtc, WebfluxClient wfclient) {
 		this.client = c;
 		this.rtClient = rtc;
+		this.wfclient = wfclient;
 	}
 	
 	@GetMapping("/client")
@@ -34,5 +39,12 @@ public class RestClientController {
 			) {
 		//return client.incrprice(getProduct(usert));
 		return rtClient.incrprice(getProduct("true"));
+	}
+	
+	@GetMapping("/ip2")
+	public Mono<Product> incrProductPrice2() {
+		Product p = getProduct(null);
+		
+		return wfclient.incrprice(p);
 	}
 }
