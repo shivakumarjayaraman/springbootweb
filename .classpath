@@ -116,5 +116,9 @@
   <classpathentry kind="var" path="M2_REPO/io/projectreactor/reactor-core/3.4.10/reactor-core-3.4.10.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/reactivestreams/reactive-streams/1.0.3/reactive-streams-1.0.3.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-webflux/5.3.10/spring-webflux-5.3.10.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/boot/spring-boot-starter-data-jdbc/2.5.5/spring-boot-starter-data-jdbc-2.5.5.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/data/spring-data-jdbc/2.2.5/spring-data-jdbc-2.2.5.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/data/spring-data-relational/2.2.5/spring-data-relational-2.2.5.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/data/spring-data-commons/2.5.5/spring-data-commons-2.5.5.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/h2database/h2/1.4.200/h2-1.4.200.jar"/>
 </classpath>
